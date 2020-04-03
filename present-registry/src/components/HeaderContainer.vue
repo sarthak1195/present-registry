@@ -7,15 +7,21 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">About<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Create Registry</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Cart</a>
+          </li>
         </ul>
         <span class="navbar-text">
           <Modal/>
         </span>
       </div>
     </nav>
-    <transition name="fade" appear>
-        <div class="modal-overlay" v-if="showModal" @click="showModal = false"></div>
-    </transition>
     <div class="hero-image">
       <div class="hero-text">
         <h1>Joe Exotic's Wedding</h1>
@@ -59,5 +65,9 @@ export default {
     color: rgb(255, 203, 246);
     font-weight: 700;
     font-size: 200%;
+  }
+
+  .nav-link{
+    color:  #FFFFFC !important;
   }
 </style>

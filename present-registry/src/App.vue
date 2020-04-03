@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <HeaderContainer/>
-    <Modal/>
     <section class="PresentList">
       <PresentCard
         v-for="presentCard in PresentList"
@@ -10,7 +9,6 @@
         v-on:delete-presentCard="deletePresentCard"
       />
     </section>
-
   </div>
 </template>
 

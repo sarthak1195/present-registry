@@ -3,7 +3,7 @@
         <a href="#myModal" @click.prevent="show" class="loginBtn" @click="showModal = true">Login</a>
         <modal name="modal-login">
             <div class="login-form">
-                <form action="/examples/actions/confirmation.php" method="post">
+                <form action="" method="post">
                     <h2 class="text-center">Log in</h2>       
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Username" required="required">
