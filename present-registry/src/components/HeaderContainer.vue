@@ -16,9 +16,16 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Cart</a>
           </li>
+          <li class="nav-item">
+            <Presents/>
+            <!--<a class="nav-link" href="#">Presents</a>-->
+          </li>
         </ul>
         <span class="navbar-text">
           <Modal/>
+        </span>
+        <span class="navbar-text">
+          <modal-register/>
         </span>
       </div>
     </nav>
@@ -33,11 +40,15 @@
 
 <script>
 import Modal from './Modal.vue'
+import ModalRegister from './ModalRegister.vue'
+import Presents from './Presents.vue'
 
 export default {
   name: 'HeaderContainer',
   components: {
-    Modal
+    Modal,
+    ModalRegister,
+    Presents
   },
   data() {
     return{
@@ -69,5 +80,9 @@ export default {
 
   .nav-link{
     color:  #FFFFFC !important;
+  }
+
+  .navbar-text {
+    padding-left: 15px;
   }
 </style>
