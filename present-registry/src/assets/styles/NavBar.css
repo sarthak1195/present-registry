@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600&display=swap');
+
+.NavBar {
+    background: #FF99CC;
+    border: none;
+}
+
+h1.navbar-brand{
+    display:inline;
+    text-align: center;
+    color: #FFFFFC !important;
+    font-weight: 700;
+    font-size: 200% !important;
+    padding: 10px;
+}
+
+h1.navbar-brand:hover{
+    display:inline;
+    text-align: center;
+    color: rgb(255, 203, 246) !important;
+    font-weight: 700;
+    font-size: 200% !important;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.routerLink{
+    text-decoration: none !important;
+}
+
+.subItem{
+      color:  #FFFFFC !important;
+      text-decoration: none !important;
+      font-size: 100% !important;
+}
+
+.nav-link{
+    color:  #FFFFFC !important;
+}
+
+.navbar-text {
+    padding-left: 15px;
+}
+
+.authentication-modals span{
+    padding: 10px;
+    color:  #FFFFFC;
+}
+
+.stripes {
+  color: black;
+  background: repeating-linear-gradient(
+    to right,
+    #FF99CC,
+    #FF99CC 10px,
+    rgb(255, 179, 217) 10px,
+    rgb(255, 179, 217) 20px
+  );
+}

@@ -1,18 +1,28 @@
 <template>
-  <div id="app">
-    <NavBar />
-    <router-view></router-view> 
+  <div >
+    <IndexPage 
+      class = "show"
+      v-bind:indexData="IndexPageData"
+      v-bind:registries="RegistryList"
+    />
   </div>
 </template>
 
 <script>
-import NavBar from './components/NavBar.vue'
+import store from "@/store.js"
+import IndexPage from '../components/IndexPage.vue'
 
 export default {
-  name: 'App',
+  name: 'Index',
   components: {
-    NavBar
+    IndexPage
   },
+  data() {
+        return {
+            IndexPageData: store.IndexPageData,
+            RegistryList: store.RegistryList
+        }
+    }
 }
 </script>
 
@@ -31,13 +41,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  body {
-    background-image: url("./assets/images/PinkSky.jpg");
-    background-repeat:no-repeat;
-    background-position: center center;
-    background-size: cover;
   }
 
   .hide {
