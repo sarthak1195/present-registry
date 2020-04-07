@@ -1,37 +1,30 @@
 <template>
-    <div class="PresentCard">
+  <div class="AddCard">
       <div class="presentCard-inner">
           <div class="presentCard-title">
-              <h2>{{presentCard.presentName}}</h2>
+              <h2>Add A Present</h2>
           </div>
           <div class="presentCard-image-wrap">
-              <img v-bind:src="presentCard.src" class="image"/>
-              <!-- <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2009/2/23/1/LR0202-4_Excellent-Meatballs_s4x3.jpg.rend.hgtvcom.616.462.suffix/1432472001768.jpeg" class="image"/> -->
-          </div>
-          <div class="presentCard-detail">
-              <p>{{presentCard.presentDescription}}</p>
-          </div>
-          <div class="presentCard-interface">
-              <button @click="$emit('delete-presentCard', presentCard.presentID)" type="button" class="btn btn-buy">Add to Cart</button>
+              <div class="add-image">?</div>
           </div>
       </div>
-    </div>  
+  </div>
 </template>
 
 <script>
 export default {
-    name: "PresentCard",
-    props: ['presentCard']
+    name: "AddCard",
 }
 </script>
 
-<style scoped>
+<style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 
-    .PresentCard {
+    .AddCard {
         flex: 1 1 10%;
         width: 100%;
         padding: 20px;
+        cursor: pointer;
     }
 
     .presentCard-inner {
@@ -55,28 +48,13 @@ export default {
     .presentCard-image-wrap {
         width: 100%;
     }
-
-    .presentCard-image-wrap img {
-        max-width: 275px;
-        max-height: 275px;
-    }
-
-    .image{
-        margin: 10px auto;
-    }
-    .presentCard-detail {
-        padding: 10px;
-        margin: 10px;
-        background-color: rgb(255, 255, 255, .30);
-    }
-
-    .btn-buy {
-        margin: 10px;
-        background: rgb(83, 216, 112) !important;
-    }
-
-    .btn-buy:hover {
-        background: rgb(166, 255, 184) !important;
+    
+    .add-image {
+        color: white;
+        text-align: center;
+        background-color: rgb(166, 255, 184, 0.75);
+        font-size: 1000%;
+        border-radius: 100px;
     }
 
     .presentCard-title {
