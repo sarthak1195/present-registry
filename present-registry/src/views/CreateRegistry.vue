@@ -6,14 +6,18 @@
                 <form action="" method="">
                     <h2 class="text-center">Registry Name</h2>       
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Name" required="required" >
+                        <input type="text" class="form-control" name="registryTitle" v-model="registryTitle" required="required" >
                     </div>
                     <h2 class="text-center">Registry Description</h2>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Description" required="required" v-model="password">
+                        <input type="text" class="form-control" name="registryDescription" required="required" v-model="registryDescription">
                     </div>
+                    <h2 class="text-center">Registry Image</h2>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block">Submit Registry</button>
+                        <input type="text" class="form-control" name="registryImageURL" required="required" v-model="registryImageURL">
+                    </div>                    
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary btn-block" v-on:click="createRegistry()">Create Registry</button>
                     </div>
                 </form>
             </div>
@@ -23,6 +27,7 @@
 
 <script>
 import HeroImage from '../components/HeroImage.vue'
+import axios from 'axios'
 
 export default {
     name: 'CreateRegistry',
@@ -32,10 +37,29 @@ export default {
             indexData: {
                 title: "Create a Registry",
                 description: "Fill in the necessary fields"
-            }
+            },
+            serviceURL: "http://info3103.cs.unb.ca:8040",
+            registryTitle: '',
+            registryDescription: '',
+            registryImageURL: ''
+        }
+    },
+    methods: {
+        createRegistry() {
+            axios
+            .post(this.serviceURL+'/registry', {
+                registryTitle: this.registryTitle,
+                registryDescription: this.registryDescription,
+                registryImageURL: this.registryImageURL
+            })
+            .then(function (response) {
+                alert("Registry Created: " + response.data)
+            })
+            .catch(function (error) {
+                alert("Error while adding registry: " + error)
+            })
         }
     }
-
 }
 </script>
 
