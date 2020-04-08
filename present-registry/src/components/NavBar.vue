@@ -13,13 +13,22 @@
           <li class="nav-item">
           </li>
         </ul>
-        <div class="authentication-modals">
+        <div  v-if="!authenticated" class="authentication-modals">
           <span class="navbar-text">
-            <ModalLogin/>
+            <ModalLogin v-on:authenticated="authenticateSwitch"/>
           </span>
           <span>|</span>
           <span class="navbar-text">
             <ModalRegister/>
+          </span>
+        </div>
+        <div v-if="authenticated" class="signed-in ">
+          <span class="navbar-text ">
+            Hello, {{username}}
+          </span>
+          <span>|</span>
+          <span class="navbar-text">
+            <button @click="authenticateSwitch" type="button" class="btn signout-btn">Sign Out</button>
           </span>
         </div>
       </div>
@@ -37,10 +46,35 @@ export default {
     ModalLogin,
     ModalRegister
   },
+  data() {
+    return {
+      authenticated: false,
+      username: "John"
+    }
+  }, 
+  methods: {
+    authenticateSwitch() {
+      if(this.authenticated)
+        this.authenticated = false;
+      else
+        this.authenticated = true;
+    }
+  }
     
 }
 </script>
 
 <style>
     @import '../assets/styles/NavBar.css';
+
+    .signed-in span{
+      padding: 10px;
+      font-size: 150%;
+      color: white !important;
+      font-weight: 700;
+    }
+
+    .signout-btn{
+      background-color: white!important;
+    }
 </style>

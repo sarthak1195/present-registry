@@ -29,9 +29,10 @@ h1.navbar-brand:hover{
 }
 
 .subItem{
-      color:  #FFFFFC !important;
-      text-decoration: none !important;
-      font-size: 100% !important;
+      padding: 10px;
+      font-size: 100%;
+      color: white !important;
+      font-weight: 500;
 }
 
 .nav-link{
