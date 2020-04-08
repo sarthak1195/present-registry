@@ -7,7 +7,7 @@
 .login-form h2 {
     margin: 0 0 15px;
 }
-.form-control, .btn {
+.form-control .btn {
     min-height: 38px;
     border-radius: 2px;
 }
@@ -43,7 +43,7 @@ a.loginBtn:hover{
 .register-form h2 {
     margin: 0 0 15px;
 }
-.form-control, .btn {
+.form-control .btn {
     min-height: 38px;
     border-radius: 2px;
 }

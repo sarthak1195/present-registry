@@ -3,7 +3,7 @@
         <a href="#register" @click.prevent="show" class="registerBtn" @click="showModal = true">Register</a>
         <modal name="modal-register" :height="420">
             <div class="register-form">
-                <form action="#" method="post">
+                <form action="#" method="">
                     <h2 class="text-center">Register</h2>       
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Name" required="required">
