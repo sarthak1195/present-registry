@@ -13,6 +13,7 @@
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block" @click="$emit('authenticated')" >Log in</button>
+                        <!--<button type="submit" class="btn btn-primary btn-block" @click="login()" >Log in</button>-->
                     </div>
                     <div class="text-sm font-normal text-center">
                         <p>Don't have an account? <a href="#" class="text-blue-600 hover:text-blue-800" @click.prevent="showRegister" @keydown.tab.exact.prevent="">Register</a></p>
@@ -24,8 +25,19 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
+    
     name: "ModalLogin",
+    data() {
+        return {
+            serviceURL: "http://info3103.cs.unb.ca:8040",
+            username: '',
+            password: '',
+            authenticated: false
+        }
+    },
     methods: {
         show () {
             this.$modal.show('modal-login');
@@ -38,13 +50,27 @@ export default {
             this.$modal.hide('modal-login');
         },
         login () {
-            
-        }
-    },
-    data() {
-        return {
-            username: '',
-            password: '',
+            if (this.username != "" && this.password != "") {
+                axios
+                .post(this.serviceURL+'/signin', {
+                    username: this.username,
+                    password: this.password 
+                })
+                .then(function (response) {
+                    if (response.data.status == "success") {
+                        this.authenticated = true
+                    }
+                })
+                .catch(function (error) {
+                    this.authenticated = false
+                    this.password = ""
+                    alert("Incorrect username or password! Try again.")
+                    console.log(error)
+                })
+            }
+            else {
+                alert("Username or Password cannot be empty")
+            }
         }
     }
 }

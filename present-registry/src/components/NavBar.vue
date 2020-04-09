@@ -29,6 +29,7 @@
           <span>|</span>
           <span class="navbar-text">
             <button @click="authenticateSwitch" type="button" class="btn signout-btn">Sign Out</button>
+            <!--<button @click="logout()" type="button" class="btn signout-btn">Sign Out</button>-->
           </span>
         </div>
       </div>
@@ -39,6 +40,7 @@
 <script>
 import ModalLogin from './ModalLogin.vue'
 import ModalRegister from './ModalRegister.vue'
+import axios from 'axios'
 
 export default {
   name: 'NavBar',
@@ -48,6 +50,7 @@ export default {
   },
   data() {
     return {
+      serviceURL: "http://info3103.cs.unb.ca:8040",
       authenticated: false,
       username: "John"
     }
@@ -58,6 +61,19 @@ export default {
         this.authenticated = false;
       else
         this.authenticated = true;
+    },
+
+    logout() {
+      axios
+      .delete(this.serviceURL+'/signin')
+      .then(function (response) {
+         if (response.data.status == "success") {
+           this.authenticated = false
+         }
+      })
+      .catch(function (error) {
+          alert("There was a problem while signing out: " + error)
+      })
     }
   }
     
