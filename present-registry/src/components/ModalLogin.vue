@@ -12,8 +12,10 @@
                         <input type="password" class="form-control" placeholder="Password" required="required" v-model="password">
                     </div>
                     <div class="form-group">
+
                         <!-- <button type="submit" class="btn btn-primary btn-block" @click="$emit('authenticated')" >Log in</button> -->
                         <button type="submit" class="btn btn-primary btn-block" @click="login()" >Log in</button>
+
                     </div>
                     <div class="text-sm font-normal text-center">
                         <p>Don't have an account? <a href="#" class="text-blue-600 hover:text-blue-800" @click.prevent="showRegister" @keydown.tab.exact.prevent="">Register</a></p>
@@ -57,7 +59,9 @@ export default {
                 })
                 .then(function (response) {
                     if (response.data.status == "success") {
+                    
                         this.$emit('authenticated')
+
                     }
                 })
                 .catch(function (error) {

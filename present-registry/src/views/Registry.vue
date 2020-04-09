@@ -31,20 +31,24 @@ export default {
         deletePresentCard(id) {
             this.PresentList = this.PresentList.filter(presentCard => presentCard.presentID != id);
         },
+
         getRegistryInfo(registryID) {
             axios
             .get(this.serviceURL + '/registry/' + registryID)
             .then(function (response) {
                 this.registryInfo = response.data.RegistryList
                 this.getPresentsInRegistryInfo(registryID);
+
             })
             .catch(function (error) {
                 alert(error)
             })
         },
+
         getPresentsInRegistryInfo(registryID) {
             axios
             .get(this.serviceURL + '/registry/' + registryID + '/presents')
+
             .then(function (response) {
                 this.presentsInRegistryInfo = response.data.presentsInRegistry
             })
@@ -52,7 +56,9 @@ export default {
                 alert(error)
             })
         }
+
     },
+
     data(){
         return {
             registryID:this.$route.params.registryID,
