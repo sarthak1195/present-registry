@@ -1,6 +1,6 @@
 <template>
     <div>
-        <a href="#myModal" @click.prevent="show" class="loginBtn" @click="showModal = true">Login</a>
+        <a href="#login" @click.prevent="show" class="loginBtn" @click="showModal = true">Login</a>
         <modal name="modal-login">
             <div class="login-form">
                 <form action="" @submit.prevent="login" method="">

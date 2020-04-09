@@ -11,7 +11,8 @@ export default new Router({
     routes: [
         { path: '/', name: 'Index', component: Index, props: true },
         { path: '/registry/:registryID', name: 'Registry', component: Registry, props: true },
-        { path: '/createregistry', name: 'CreateRegistry', component: CreateRegistry, props: true }
+        { path: '/createregistry', name: 'CreateRegistry', component: CreateRegistry, props: true },
+        // { path: '/registry/createregistry', name: 'CreateRegistry', component: CreateRegistry, props: true }
     ],
     mode: 'history'
 })
