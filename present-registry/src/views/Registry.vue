@@ -18,6 +18,7 @@ import HeroImage from '../components/HeroImage.vue'
 import PresentCard from '../components/PresentCard.vue'
 import store from '@/store.js'
 import AddCard from '../components/AddCard.vue'
+import axios from 'axios'
 
 export default {
     name: 'Registry',
