@@ -8,7 +8,7 @@
                 :presentCard="presentCard"
                 v-on:delete-presentCard="deletePresentCard"
             />
-            <AddCard />
+            <AddCard v-bind:registryID="registryID"/>
         </section>
     </div>
 </template>
@@ -32,21 +32,23 @@ export default {
             this.PresentList = this.PresentList.filter(presentCard => presentCard.presentID != id);
         },
 
-        getRegistryInfo(RID) {
+        getRegistryInfo(registryID) {
             axios
-            .get(this.serviceURL + '/registry/' + RID)
+            .get(this.serviceURL + '/registry/' + registryID)
             .then(function (response) {
                 this.registryInfo = response.data.RegistryList
-                this.getPresentsInRegistryInfo(RID);
+                this.getPresentsInRegistryInfo(registryID);
+
             })
             .catch(function (error) {
                 alert(error)
             })
         },
 
-        getPresentsInRegistryInfo(RID) {
+        getPresentsInRegistryInfo(registryID) {
             axios
-            .get(this.serviceURL + '/registry/' + RID + '/presents')
+            .get(this.serviceURL + '/registry/' + registryID + '/presents')
+
             .then(function (response) {
                 this.presentsInRegistryInfo = response.data.presentsInRegistry
             })
