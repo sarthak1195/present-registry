@@ -12,8 +12,8 @@
                         <input type="password" class="form-control" placeholder="Password" required="required" v-model="password">
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block" @click="$emit('authenticated')" >Log in</button>
-                        <!--<button type="submit" class="btn btn-primary btn-block" @click="login()" >Log in</button>-->
+                        <!-- <button type="submit" class="btn btn-primary btn-block" @click="$emit('authenticated')" >Log in</button> -->
+                        <button type="submit" class="btn btn-primary btn-block" @click="login()" >Log in</button>
                     </div>
                     <div class="text-sm font-normal text-center">
                         <p>Don't have an account? <a href="#" class="text-blue-600 hover:text-blue-800" @click.prevent="showRegister" @keydown.tab.exact.prevent="">Register</a></p>
@@ -35,7 +35,6 @@ export default {
             serviceURL: "http://info3103.cs.unb.ca:8040",
             username: '',
             password: '',
-            authenticated: false
         }
     },
     methods: {
@@ -58,11 +57,10 @@ export default {
                 })
                 .then(function (response) {
                     if (response.data.status == "success") {
-                        this.authenticated = true
+                        this.$emit('authenticated')
                     }
                 })
                 .catch(function (error) {
-                    this.authenticated = false
                     this.password = ""
                     alert("Incorrect username or password! Try again.")
                     console.log(error)
@@ -76,6 +74,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     @import '../assets/styles/AuthenticationModal.css';
 </style>

@@ -12,7 +12,12 @@
               <p>{{presentCard.presentDescription}}</p>
           </div>
           <div class="presentCard-interface">
-              <button @click="$emit('delete-presentCard', presentCard.presentID)" type="button" class="btn btn-buy">Add to Cart</button>
+              <div class="bought-present" v-if="!bought">
+                  <button @click="signOffPresent()" type="button" class="btn btn-buy">Sign on to buy</button>
+              </div>
+              <div v-if="bought">
+                  <button type="button" disabled class="btn btn-signed-off">Present has been signed off</button>
+              </div>
           </div>
       </div>
     </div>  
@@ -21,7 +26,17 @@
 <script>
 export default {
     name: "PresentCard",
-    props: ['presentCard']
+    props: ['presentCard'],
+    data() {
+        return {
+            bought: false
+        }
+    },
+    methods: {
+        signOffPresent(){
+            this.bought = true;
+        }
+    }
 }
 </script>
 
@@ -77,6 +92,11 @@ export default {
 
     .btn-buy:hover {
         background: rgb(166, 255, 184) !important;
+    }
+
+    .btn-signed-off {
+        margin: 10px;
+        background: rgb(141, 141, 141)) !important;
     }
 
     .presentCard-title {

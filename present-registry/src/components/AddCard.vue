@@ -25,7 +25,7 @@
                         Image src: <input type="text" class="form-control" placeholder="Image URL" required="required" v-model="presentImageURL">
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block" @click="$emit('authenticated')" >Add Present</button>
+                        <button type="submit" class="btn btn-primary btn-block" >Add Present</button>
                         <!-- <button type="submit" class="btn btn-primary btn-block" @click="addPresent" >Add Present</button> -->
                     </div>
                 </form>
@@ -39,6 +39,7 @@ import axios from 'axios'
 
 export default {
     name: "AddCard",
+    props: ['registryID'],
     methods: {
         show () {
             this.$modal.show('modal-add-present');
@@ -102,7 +103,6 @@ export default {
             serviceURL: "http://info3103.cs.unb.ca:8040",
             presentImageURL: String,
             // Something similar if this doesn't work
-            registryID:this.$route.params.registryID,
             presentID: ''
         }
     }
@@ -166,5 +166,9 @@ export default {
         border-radius: 100px;
         box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.505);
         text-align: center;
+    }
+
+    .v--modal {
+        height: 42vh!important;
     }
 </style>
