@@ -13,7 +13,7 @@
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block" @click="$emit('authenticated')" >Log in</button>
-                        <!--<button type="submit" class="btn btn-primary btn-block" @click="login()" >Log in</button>-->
+                        <!--<button type="submit" class="btn btn-primary btn-block" @click="login()">Log in</button>-->
                     </div>
                     <div class="text-sm font-normal text-center">
                         <p>Don't have an account? <a href="#" class="text-blue-600 hover:text-blue-800" @click.prevent="showRegister" @keydown.tab.exact.prevent="">Register</a></p>
@@ -59,6 +59,7 @@ export default {
                 .then(function (response) {
                     if (response.data.status == "success") {
                         this.authenticated = true
+                        // Emit authenticated to NavBar here
                     }
                 })
                 .catch(function (error) {

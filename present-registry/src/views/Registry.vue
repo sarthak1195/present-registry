@@ -29,11 +29,41 @@ export default {
     methods: {
         deletePresentCard(id) {
             this.PresentList = this.PresentList.filter(presentCard => presentCard.presentID != id);
+        },
+
+        getRegistryInfo(RID) {
+            axios
+            .get(this.serviceURL + '/registry/' + RID)
+            .then(function (response) {
+                this.registryInfo = response.data.RegistryList
+                this.getPresentsInRegistryInfo(RID);
+            })
+            .catch(function (error) {
+                alert(error)
+            })
+        },
+
+        getPresentsInRegistryInfo(RID) {
+            axios
+            .get(this.serviceURL + '/registry/' + RID + '/presents')
+            .then(function (response) {
+                this.presentsInRegistryInfo = response.data.presentsInRegistry
+            })
+            .catch(function (error) {
+                alert(error)
+            })
         }
+
     },
+
     data(){
         return {
-            registryID:this.$route.params.registryID
+            registryID:this.$route.params.registryID,
+            // Changes
+            serviceURL: 'http://info3103.cs.unb.ca:8040',
+            registryInfo: '',
+            presentsInRegistryInfo: '',
+            RID: Number
         }
     },
     computed:{
