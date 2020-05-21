@@ -1,6 +1,7 @@
 # Present Registry
-Term project for INFO3103
-| University of New Brunswick | Winter 2020
+Term project for INFO3103 - Programming on the web 
+
+University of New Brunswick | Winter 2020
 
 Done through Vue CLI (Assuming you have npmn installed)
 
