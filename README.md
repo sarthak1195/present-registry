@@ -1,5 +1,6 @@
-# present-registry
+# Present Registry
 Term project for INFO3103
+University of New Brunswick (Winter 2020)
 
 Done through Vue CLI (Assuming you have npmn installed)
 
